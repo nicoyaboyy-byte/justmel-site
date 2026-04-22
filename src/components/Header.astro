@@ -1,7 +1,6 @@
 ---
 const phone = '973-698-0608';
 const phoneLink = 'tel:+19736980608';
-const base = import.meta.env.BASE_URL;
 ---
 
 <header class="header">
@@ -26,7 +25,18 @@ const base = import.meta.env.BASE_URL;
   <nav class="nav">
     <div class="container nav-inner">
       <a href="#top" class="brand">
-        <img src={`${base}images/logo.png`} alt="JustMel LLC General Contractor" />
+        <div class="brand-icon">
+          <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M8 36 L32 14 L56 36 L56 58 L8 58 Z" fill="#1a2b5c"/>
+            <path d="M32 14 L56 36 L56 22 L44 14 Z" fill="#4fb6c4"/>
+            <rect x="20" y="40" width="10" height="14" fill="#ffffff"/>
+            <rect x="36" y="40" width="10" height="10" fill="#ffffff"/>
+          </svg>
+        </div>
+        <div class="brand-text">
+          <span class="brand-name">JUSTMEL <span class="llc">LLC</span></span>
+          <span class="brand-tagline">General Contractor</span>
+        </div>
       </a>
 
       <ul class="nav-links">
@@ -66,12 +76,12 @@ const base = import.meta.env.BASE_URL;
     position: sticky;
     top: 0;
     z-index: 100;
-    background: var(--white);
-    box-shadow: 0 1px 0 rgba(0, 0, 0, 0.04);
+    background: #ffffff;
+    box-shadow: 0 1px 0 rgba(0, 0, 0, 0.06);
   }
 
   .top-bar {
-    background: var(--navy-deep);
+    background: #0a1228;
     color: rgba(255, 255, 255, 0.85);
     font-size: 0.8rem;
   }
@@ -99,7 +109,7 @@ const base = import.meta.env.BASE_URL;
   }
 
   a.top-item:hover {
-    color: var(--teal);
+    color: #4fb6c4;
   }
 
   .divider {
@@ -107,49 +117,85 @@ const base = import.meta.env.BASE_URL;
   }
 
   .lets-talk {
-    color: var(--teal);
-    font-weight: 600;
-    letter-spacing: 0.05em;
+    color: #4fb6c4;
+    font-weight: 700;
+    letter-spacing: 0.08em;
     text-transform: uppercase;
-    font-size: 0.75rem;
+    font-size: 0.72rem;
   }
 
   .lets-talk:hover {
-    color: var(--white);
+    color: #ffffff;
   }
 
   .nav-inner {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding-top: 0.8rem;
-    padding-bottom: 0.8rem;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
     gap: 2rem;
   }
 
   .brand {
     display: flex;
     align-items: center;
+    gap: 0.75rem;
   }
 
-  .brand img {
-    height: 64px;
-    width: auto;
-    object-fit: contain;
+  .brand-icon {
+    width: 44px;
+    height: 44px;
+    flex-shrink: 0;
+  }
+
+  .brand-icon svg {
+    width: 100%;
+    height: 100%;
+  }
+
+  .brand-text {
+    display: flex;
+    flex-direction: column;
+    line-height: 1;
+  }
+
+  .brand-name {
+    font-family: var(--font-display);
+    font-size: 1.3rem;
+    font-weight: 800;
+    color: #0a1228;
+    letter-spacing: 0.01em;
+  }
+
+  .brand-name .llc {
+    font-weight: 600;
+    color: #4fb6c4;
+  }
+
+  .brand-tagline {
+    font-size: 0.65rem;
+    font-weight: 600;
+    color: #8a94a6;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    margin-top: 0.25rem;
   }
 
   .nav-links {
     display: flex;
     list-style: none;
-    gap: 2.25rem;
+    gap: 2rem;
+    margin: 0;
+    padding: 0;
   }
 
   .nav-links a {
-    color: var(--navy-deep);
+    color: #0a1228;
     font-family: var(--font-display);
     font-weight: 600;
     font-size: 0.82rem;
-    letter-spacing: 0.1em;
+    letter-spacing: 0.08em;
     text-transform: uppercase;
     position: relative;
     padding: 0.25rem 0;
@@ -162,14 +208,14 @@ const base = import.meta.env.BASE_URL;
     right: 0;
     bottom: -3px;
     height: 2px;
-    background: var(--teal);
+    background: #4fb6c4;
     transform: scaleX(0);
     transform-origin: center;
     transition: transform 0.25s ease;
   }
 
   .nav-links a:hover {
-    color: var(--teal-dark);
+    color: #2a8d9a;
   }
 
   .nav-links a:hover::after {
@@ -194,15 +240,15 @@ const base = import.meta.env.BASE_URL;
   .menu-toggle span {
     width: 24px;
     height: 2px;
-    background: var(--navy-deep);
+    background: #0a1228;
     transition: all 0.2s ease;
   }
 
   .mobile-nav {
     display: none;
     flex-direction: column;
-    background: var(--white);
-    border-top: 1px solid var(--gray-100);
+    background: #ffffff;
+    border-top: 1px solid #e8ecf1;
     padding: 1rem 1.5rem 1.5rem;
     gap: 0.5rem;
   }
@@ -212,12 +258,12 @@ const base = import.meta.env.BASE_URL;
   }
 
   .mobile-nav a {
-    color: var(--navy-deep);
+    color: #0a1228;
     font-family: var(--font-display);
     font-weight: 600;
     font-size: 0.9rem;
     padding: 0.85rem 0;
-    border-bottom: 1px solid var(--gray-100);
+    border-bottom: 1px solid #e8ecf1;
     text-transform: uppercase;
     letter-spacing: 0.08em;
   }
@@ -225,7 +271,7 @@ const base = import.meta.env.BASE_URL;
   .mobile-nav a.btn {
     margin-top: 0.75rem;
     border-bottom: none;
-    color: var(--white);
+    color: #ffffff;
     padding: 0.9rem;
   }
 
@@ -237,14 +283,14 @@ const base = import.meta.env.BASE_URL;
     .menu-toggle {
       display: flex;
     }
-    .brand img {
-      height: 52px;
-    }
   }
 
   @media (max-width: 700px) {
-    .top-bar-left .divider,
+    .top-bar-left .divider:nth-of-type(n+2),
     .top-bar-left .top-item:nth-child(n+3) {
+      display: none;
+    }
+    .brand-tagline {
       display: none;
     }
   }

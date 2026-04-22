@@ -1,12 +1,24 @@
 ---
 const year = new Date().getFullYear();
-const base = import.meta.env.BASE_URL;
 ---
 
 <footer class="footer">
   <div class="container footer-top">
     <div class="footer-brand">
-      <img src={`${base}images/logo.png`} alt="JustMel LLC" class="footer-logo" />
+      <div class="footer-brand-mark">
+        <div class="footer-brand-icon">
+          <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M8 36 L32 14 L56 36 L56 58 L8 58 Z" fill="#ffffff" opacity="0.95"/>
+            <path d="M32 14 L56 36 L56 22 L44 14 Z" fill="#4fb6c4"/>
+            <rect x="20" y="40" width="10" height="14" fill="#0a1228"/>
+            <rect x="36" y="40" width="10" height="10" fill="#0a1228"/>
+          </svg>
+        </div>
+        <div>
+          <span class="footer-name">JUSTMEL LLC</span>
+          <span class="footer-subname">General Contractor</span>
+        </div>
+      </div>
       <p class="brand-tag">Transforming houses into homes you'll be proud of — licensed, insured, and trusted across northern New Jersey.</p>
       <div class="footer-license">
         <span class="license-badge">Fully Insured</span>
@@ -75,12 +87,42 @@ const base = import.meta.env.BASE_URL;
     padding-bottom: 3.5rem;
   }
 
-  .footer-logo {
-    height: 60px;
-    width: auto;
+  .footer-brand-mark {
+    display: flex;
+    align-items: center;
+    gap: 0.85rem;
     margin-bottom: 1.25rem;
-    filter: brightness(0) invert(1);
-    opacity: 0.95;
+  }
+
+  .footer-brand-icon {
+    width: 48px;
+    height: 48px;
+    flex-shrink: 0;
+  }
+
+  .footer-brand-icon svg {
+    width: 100%;
+    height: 100%;
+  }
+
+  .footer-name {
+    display: block;
+    font-family: var(--font-display);
+    font-size: 1.2rem;
+    font-weight: 800;
+    color: #ffffff;
+    line-height: 1;
+    letter-spacing: 0.02em;
+  }
+
+  .footer-subname {
+    display: block;
+    font-size: 0.68rem;
+    font-weight: 600;
+    color: #4fb6c4;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    margin-top: 0.3rem;
   }
 
   .brand-tag {
