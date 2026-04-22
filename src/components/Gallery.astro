@@ -1,51 +1,53 @@
 ---
 const projects = [
-  { category: 'Roofing', title: 'Asphalt Shingle Replacement', location: 'Kearny, NJ', color: '#1a2b5c' },
-  { category: 'Siding', title: 'Vinyl Siding Install', location: 'Harrison, NJ', color: '#4fb6c4' },
-  { category: 'Windows', title: 'Full Window Replacement', location: 'North Arlington, NJ', color: '#2a8d9a' },
-  { category: 'Gutters', title: 'Seamless Gutter System', location: 'Belleville, NJ', color: '#1a2b5c' },
-  { category: 'Siding', title: 'Fiber Cement Siding', location: 'Nutley, NJ', color: '#4fb6c4' },
-  { category: 'Roofing', title: 'Complete Roof Tear-Off', location: 'Lyndhurst, NJ', color: '#2a8d9a' },
+  { cat: 'Roofing', title: 'Asphalt Shingle Replacement', loc: 'Kearny, NJ', grad: 'linear-gradient(135deg, #1a2b5c 0%, #0a1228 100%)' },
+  { cat: 'Siding', title: 'Full Vinyl Re-Side', loc: 'Harrison, NJ', grad: 'linear-gradient(135deg, #4fb6c4 0%, #2a8d9a 100%)' },
+  { cat: 'Windows', title: 'Energy-Efficient Install', loc: 'North Arlington, NJ', grad: 'linear-gradient(135deg, #2a8d9a 0%, #1a2b5c 100%)' },
+  { cat: 'Gutters', title: 'Seamless Gutter System', loc: 'Belleville, NJ', grad: 'linear-gradient(135deg, #0f1b3d 0%, #2a8d9a 100%)' },
+  { cat: 'Siding', title: 'Fiber Cement Upgrade', loc: 'Nutley, NJ', grad: 'linear-gradient(135deg, #4fb6c4 0%, #1a2b5c 100%)' },
+  { cat: 'Roofing', title: 'Complete Roof Tear-Off', loc: 'Lyndhurst, NJ', grad: 'linear-gradient(135deg, #1a2b5c 0%, #4fb6c4 100%)' },
+  { cat: 'Windows', title: 'Picture + Casement Combo', loc: 'Bloomfield, NJ', grad: 'linear-gradient(135deg, #0a1228 0%, #4fb6c4 100%)' },
+  { cat: 'Gutters', title: 'Leaf Guard Installation', loc: 'Kearny, NJ', grad: 'linear-gradient(135deg, #2a8d9a 0%, #0a1228 100%)' },
 ];
 ---
 
 <section class="gallery section" id="gallery">
   <div class="container">
-    <div class="section-header">
-      <span class="eyebrow">Recent Work</span>
-      <h2>Projects We're Proud Of</h2>
+    <div class="section-header reveal">
+      <span class="eyebrow">Our Gallery</span>
+      <h2>Recent Work, Real Results</h2>
       <p>
-        A small sample of the exterior transformations we've completed across
-        northern New Jersey. More photos are added as projects wrap up.
+        A small window into the exterior transformations we've delivered across
+        northern New Jersey. Ask for project references on your estimate visit.
       </p>
     </div>
 
     <div class="gallery-grid">
       {projects.map((p, i) => (
-        <figure class={`gallery-item gallery-item-${i + 1}`}>
-          <div class="gallery-image" style={`background: linear-gradient(135deg, ${p.color} 0%, ${p.color}dd 100%);`}>
-            <svg viewBox="0 0 100 100" fill="none" stroke="rgba(255,255,255,0.25)" stroke-width="1.5">
+        <figure class={`gallery-item reveal reveal-delay-${(i % 4) + 1}`}>
+          <div class="gallery-image" style={`background: ${p.grad};`}>
+            <svg class="house-svg" viewBox="0 0 100 100" fill="none" stroke="rgba(255,255,255,0.3)" stroke-width="1.5">
               <path d="M10 70 L50 35 L90 70 L90 90 L10 90 Z"/>
               <path d="M50 35 L50 90"/>
               <path d="M30 90 L30 70"/>
               <path d="M70 90 L70 70"/>
+              <rect x="20" y="75" width="6" height="8" fill="rgba(255,255,255,0.15)"/>
+              <rect x="74" y="75" width="6" height="8" fill="rgba(255,255,255,0.15)"/>
             </svg>
+            <div class="gallery-hover">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
+            </div>
           </div>
           <figcaption>
-            <span class="project-category">{p.category}</span>
+            <span class="proj-cat">{p.cat}</span>
             <h4>{p.title}</h4>
-            <span class="project-location">
+            <span class="proj-loc">
               <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-              {p.location}
+              {p.loc}
             </span>
           </figcaption>
         </figure>
       ))}
-    </div>
-
-    <div class="gallery-cta">
-      <p>Want to see more? Ask for project references on your estimate visit.</p>
-      <a href="#contact" class="btn btn-ghost">Schedule an Estimate</a>
     </div>
   </div>
 </section>
@@ -57,21 +59,22 @@ const projects = [
 
   .gallery-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(4, 1fr);
     gap: 1.25rem;
   }
 
   .gallery-item {
+    background: var(--white);
     border-radius: var(--radius-lg);
     overflow: hidden;
-    background: var(--white);
     box-shadow: var(--shadow-sm);
-    transition: all 0.3s ease;
+    transition: all 0.35s var(--ease-out);
+    cursor: pointer;
   }
 
   .gallery-item:hover {
-    transform: translateY(-4px);
-    box-shadow: var(--shadow-md);
+    transform: translateY(-6px);
+    box-shadow: var(--shadow-lg);
   }
 
   .gallery-image {
@@ -80,62 +83,92 @@ const projects = [
     align-items: center;
     justify-content: center;
     position: relative;
+    overflow: hidden;
   }
 
-  .gallery-image svg {
-    width: 60%;
+  .house-svg {
+    width: 70%;
     max-width: 180px;
+    transition: transform 0.6s var(--ease-out);
+  }
+
+  .gallery-item:hover .house-svg {
+    transform: scale(1.08);
+  }
+
+  .gallery-hover {
+    position: absolute;
+    inset: 0;
+    background: rgba(10, 18, 40, 0.55);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    color: var(--white);
+  }
+
+  .gallery-hover::after {
+    content: '';
+    position: absolute;
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    background: rgba(79, 182, 196, 0.2);
+    transform: scale(0.7);
+    transition: transform 0.3s ease;
+  }
+
+  .gallery-hover svg {
+    position: relative;
+    z-index: 2;
+  }
+
+  .gallery-item:hover .gallery-hover {
+    opacity: 1;
+  }
+
+  .gallery-item:hover .gallery-hover::after {
+    transform: scale(1);
   }
 
   .gallery-item figcaption {
-    padding: 1.25rem 1.25rem 1.5rem;
+    padding: 1.25rem 1.35rem 1.5rem;
   }
 
-  .project-category {
+  .proj-cat {
     display: inline-block;
-    font-size: 0.7rem;
+    font-size: 0.68rem;
     font-weight: 700;
-    letter-spacing: 0.12em;
+    letter-spacing: 0.15em;
     text-transform: uppercase;
     color: var(--teal-dark);
-    margin-bottom: 0.4rem;
+    margin-bottom: 0.5rem;
   }
 
   .gallery-item h4 {
     font-family: var(--font-display);
-    font-size: 1.15rem;
+    font-size: 1.05rem;
     font-weight: 700;
     margin-bottom: 0.5rem;
     color: var(--navy-deep);
+    line-height: 1.3;
   }
 
-  .project-location {
+  .proj-loc {
     display: inline-flex;
     align-items: center;
     gap: 0.3rem;
-    font-size: 0.82rem;
+    font-size: 0.78rem;
     color: var(--gray-400);
   }
 
-  .gallery-cta {
-    margin-top: 3rem;
-    text-align: center;
+  @media (max-width: 1000px) {
+    .gallery-grid { grid-template-columns: repeat(2, 1fr); }
   }
 
-  .gallery-cta p {
-    margin-bottom: 1.25rem;
-    font-size: 1rem;
-  }
-
-  @media (max-width: 900px) {
-    .gallery-grid {
-      grid-template-columns: repeat(2, 1fr);
-    }
-  }
-
-  @media (max-width: 600px) {
-    .gallery-grid {
-      grid-template-columns: 1fr;
-    }
+  @media (max-width: 520px) {
+    .gallery-grid { grid-template-columns: 1fr; }
   }
 </style>

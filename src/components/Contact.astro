@@ -6,85 +6,80 @@ const whatsappLink = 'https://wa.me/19736980608?text=Hi%20JustMel%2C%20I%27m%20i
 
 <section class="contact section" id="contact">
   <div class="container">
+    <div class="section-header reveal">
+      <span class="eyebrow">Get In Touch</span>
+      <h2>Request Your Free Estimate</h2>
+      <p>
+        Most quotes are scheduled within 24&ndash;48 hours. We walk the property,
+        answer your questions, and send you a clear, itemized price. No pressure, no obligation.
+      </p>
+    </div>
+
     <div class="contact-grid">
-      <div class="contact-info">
-        <span class="eyebrow">Get in Touch</span>
-        <h2>Ready for a Free Estimate?</h2>
-        <p>
-          Call or message us — most quotes are scheduled within 24–48 hours.
-          We'll walk your property, answer your questions, and give you a clear,
-          written price. No pressure, no obligation.
-        </p>
-
-        <div class="contact-methods">
-          <a href={phoneLink} class="contact-method">
-            <div class="method-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-            </div>
-            <div>
-              <span class="method-label">Call Direct</span>
-              <strong>{phone}</strong>
-            </div>
-          </a>
-
-          <a href={whatsappLink} target="_blank" rel="noopener" class="contact-method">
-            <div class="method-icon whatsapp">
-              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>
-            </div>
-            <div>
-              <span class="method-label">Message on WhatsApp</span>
-              <strong>Fast, easy quote requests</strong>
-            </div>
-          </a>
-
-          <div class="contact-method static">
-            <div class="method-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-            </div>
-            <div>
-              <span class="method-label">Service Area</span>
-              <strong>Kearny, NJ &amp; Surrounding</strong>
-            </div>
+      <div class="contact-info reveal-left">
+        <a href={phoneLink} class="contact-card">
+          <div class="card-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
           </div>
+          <span class="card-label">Call Direct</span>
+          <strong>{phone}</strong>
+          <span class="card-meta">Mon&ndash;Sat · 7am&ndash;6pm</span>
+        </a>
 
-          <div class="contact-method static">
-            <div class="method-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
-            </div>
-            <div>
-              <span class="method-label">Hours</span>
-              <strong>Mon–Sat · 7:00am – 6:00pm</strong>
-            </div>
+        <a href={whatsappLink} target="_blank" rel="noopener" class="contact-card whatsapp">
+          <div class="card-icon">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>
           </div>
+          <span class="card-label">WhatsApp</span>
+          <strong>Message Us</strong>
+          <span class="card-meta">Fastest response</span>
+        </a>
+
+        <div class="contact-card static">
+          <div class="card-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          </div>
+          <span class="card-label">Service Area</span>
+          <strong>Kearny, NJ</strong>
+          <span class="card-meta">Hudson · Essex · Bergen</span>
+        </div>
+
+        <div class="contact-card static">
+          <div class="card-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 11 12 14 16 10"/></svg>
+          </div>
+          <span class="card-label">Credentials</span>
+          <strong>Lic# 13VH10743600</strong>
+          <span class="card-meta">Fully Insured</span>
         </div>
       </div>
 
-      <form class="contact-form" onsubmit="event.preventDefault(); alert('Form not yet connected. Please call or message via WhatsApp for now.');">
-        <h3>Request a Free Estimate</h3>
-        <p class="form-sub">Fill this out and we'll call you back — usually same day.</p>
-
-        <div class="field">
-          <label for="name">Full Name</label>
-          <input type="text" id="name" name="name" required placeholder="John Smith" />
-        </div>
+      <form class="contact-form reveal-right" onsubmit="event.preventDefault(); alert('Form not yet connected to email. Please call 973-698-0608 or WhatsApp us in the meantime.');">
+        <h3>Send Us a Message</h3>
+        <p class="form-sub">Fill this out and we'll follow up — usually the same day.</p>
 
         <div class="field-row">
+          <div class="field">
+            <label for="name">Full Name</label>
+            <input type="text" id="name" name="name" required placeholder="John Smith" />
+          </div>
           <div class="field">
             <label for="phone">Phone</label>
             <input type="tel" id="phone" name="phone" required placeholder="(973) 555-0123" />
           </div>
-          <div class="field">
-            <label for="email">Email</label>
-            <input type="email" id="email" name="email" placeholder="you@example.com" />
-          </div>
+        </div>
+
+        <div class="field">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" placeholder="you@example.com" />
         </div>
 
         <div class="field">
           <label for="service">Service Needed</label>
           <select id="service" name="service">
             <option value="">Select one…</option>
-            <option>Siding</option>
             <option>Roofing</option>
+            <option>Siding</option>
             <option>Windows</option>
             <option>Gutters</option>
             <option>Multiple / Not Sure</option>
@@ -92,18 +87,16 @@ const whatsappLink = 'https://wa.me/19736980608?text=Hi%20JustMel%2C%20I%27m%20i
         </div>
 
         <div class="field">
-          <label for="message">Tell us about your project</label>
-          <textarea id="message" name="message" rows="4" placeholder="Project details, timeline, property address…"></textarea>
+          <label for="message">Project Details</label>
+          <textarea id="message" name="message" rows="4" placeholder="Timeline, property address, any specifics…"></textarea>
         </div>
 
         <button type="submit" class="btn btn-primary btn-full">
-          Send My Request
+          Send Request
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
         </button>
 
-        <p class="form-disclaimer">
-          By submitting you agree to be contacted about your project. We never share your info.
-        </p>
+        <p class="form-disclaimer">By submitting you agree to be contacted about your project. We never share your info.</p>
       </form>
     </div>
   </div>
@@ -116,83 +109,76 @@ const whatsappLink = 'https://wa.me/19736980608?text=Hi%20JustMel%2C%20I%27m%20i
 
   .contact-grid {
     display: grid;
-    grid-template-columns: 1fr 1.1fr;
-    gap: 4rem;
+    grid-template-columns: 0.8fr 1.2fr;
+    gap: 2.5rem;
     align-items: start;
   }
 
-  .contact-info h2 {
-    margin-top: 0.5rem;
-    margin-bottom: 1.25rem;
-  }
-
-  .contact-info > p {
-    font-size: 1.05rem;
-    margin-bottom: 2.5rem;
-  }
-
-  .contact-methods {
-    display: flex;
-    flex-direction: column;
+  .contact-info {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
     gap: 1rem;
   }
 
-  .contact-method {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    padding: 1.15rem 1.25rem;
+  .contact-card {
     background: var(--white);
     border: 1px solid var(--gray-100);
-    border-radius: var(--radius);
-    transition: all 0.2s ease;
-    color: var(--ink);
+    border-radius: var(--radius-lg);
+    padding: 1.75rem 1.5rem;
+    display: flex;
+    flex-direction: column;
+    transition: all 0.3s var(--ease-out);
+    color: var(--gray-700);
   }
 
-  a.contact-method:hover {
+  a.contact-card:hover {
+    transform: translateY(-3px);
     border-color: var(--teal);
-    transform: translateX(4px);
-    box-shadow: var(--shadow-sm);
+    box-shadow: var(--shadow-md);
+    color: var(--gray-700);
   }
 
-  .contact-method.static {
-    cursor: default;
-  }
-
-  .method-icon {
-    width: 44px;
-    height: 44px;
+  .card-icon {
+    width: 40px;
+    height: 40px;
     border-radius: 50%;
-    background: var(--navy);
-    color: var(--white);
+    background: var(--teal-light);
+    color: var(--teal-dark);
     display: flex;
     align-items: center;
     justify-content: center;
-    flex-shrink: 0;
+    margin-bottom: 1rem;
   }
 
-  .method-icon svg {
-    width: 20px;
-    height: 20px;
+  .card-icon svg {
+    width: 18px;
+    height: 18px;
   }
 
-  .method-icon.whatsapp {
-    background: #25d366;
+  .whatsapp .card-icon {
+    background: rgba(37, 211, 102, 0.12);
+    color: #1c8a45;
   }
 
-  .method-label {
-    display: block;
-    font-size: 0.78rem;
-    color: var(--gray-400);
+  .card-label {
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
     text-transform: uppercase;
-    letter-spacing: 0.08em;
-    margin-bottom: 0.15rem;
+    color: var(--gray-400);
+    margin-bottom: 0.3rem;
   }
 
-  .contact-method strong {
-    font-size: 1.05rem;
+  .contact-card strong {
+    font-family: var(--font-display);
+    font-size: 1.1rem;
     color: var(--navy-deep);
-    font-weight: 600;
+    margin-bottom: 0.25rem;
+  }
+
+  .card-meta {
+    font-size: 0.82rem;
+    color: var(--gray-600);
   }
 
   .contact-form {
@@ -208,37 +194,45 @@ const whatsappLink = 'https://wa.me/19736980608?text=Hi%20JustMel%2C%20I%27m%20i
 
   .form-sub {
     color: var(--gray-600);
-    margin-bottom: 2rem;
+    margin-bottom: 1.75rem;
     font-size: 0.95rem;
   }
 
   .field {
-    margin-bottom: 1.25rem;
+    margin-bottom: 1.1rem;
   }
 
   .field-row {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 1rem;
+    margin-bottom: 1.1rem;
+  }
+
+  .field-row .field {
+    margin-bottom: 0;
   }
 
   .field label {
     display: block;
-    font-size: 0.85rem;
+    font-size: 0.8rem;
+    font-family: var(--font-display);
     font-weight: 600;
     color: var(--navy-deep);
     margin-bottom: 0.4rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
   }
 
   .field input,
   .field select,
   .field textarea {
     width: 100%;
-    padding: 0.75rem 1rem;
+    padding: 0.85rem 1rem;
     font-family: var(--font-sans);
     font-size: 0.95rem;
     border: 1px solid var(--gray-200);
-    border-radius: var(--radius);
+    border-radius: var(--radius-sm);
     background: var(--white);
     color: var(--ink);
     transition: border-color 0.2s ease;
@@ -272,16 +266,12 @@ const whatsappLink = 'https://wa.me/19736980608?text=Hi%20JustMel%2C%20I%27m%20i
   @media (max-width: 900px) {
     .contact-grid {
       grid-template-columns: 1fr;
-      gap: 3rem;
     }
   }
 
-  @media (max-width: 500px) {
-    .field-row {
-      grid-template-columns: 1fr;
-    }
-    .contact-form {
-      padding: 1.75rem;
-    }
+  @media (max-width: 520px) {
+    .contact-info { grid-template-columns: 1fr; }
+    .field-row { grid-template-columns: 1fr; }
+    .contact-form { padding: 1.75rem; }
   }
 </style>

@@ -1,0 +1,96 @@
+---
+---
+
+<section class="newsletter">
+  <div class="container newsletter-inner reveal-zoom">
+    <div class="newsletter-text">
+      <h3>Stay in Touch</h3>
+      <p>Seasonal maintenance tips, project updates, and exclusive homeowner offers — straight to your inbox. No spam, ever.</p>
+    </div>
+    <form class="newsletter-form" onsubmit="event.preventDefault(); alert('Newsletter backend not yet connected. Your email: ' + event.target.email.value);">
+      <input type="email" name="email" required placeholder="your@email.com" />
+      <button type="submit" class="btn btn-primary">Subscribe</button>
+    </form>
+  </div>
+</section>
+
+<style>
+  .newsletter {
+    background: var(--navy-deep);
+    color: var(--white);
+    padding: 4rem 0;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .newsletter::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(circle at 25% 50%, rgba(79, 182, 196, 0.15) 0%, transparent 50%),
+      radial-gradient(circle at 75% 50%, rgba(79, 182, 196, 0.1) 0%, transparent 50%);
+  }
+
+  .newsletter-inner {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 3rem;
+    flex-wrap: wrap;
+  }
+
+  .newsletter-text {
+    flex: 1;
+    min-width: 280px;
+  }
+
+  .newsletter h3 {
+    color: var(--white);
+    font-size: 1.75rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .newsletter p {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.95rem;
+    max-width: 480px;
+  }
+
+  .newsletter-form {
+    display: flex;
+    gap: 0.5rem;
+    min-width: 320px;
+    flex: 1;
+    max-width: 500px;
+  }
+
+  .newsletter-form input {
+    flex: 1;
+    padding: 0.95rem 1.25rem;
+    font-family: var(--font-sans);
+    font-size: 0.95rem;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    background: rgba(255, 255, 255, 0.08);
+    color: var(--white);
+    border-radius: var(--radius-sm);
+  }
+
+  .newsletter-form input::placeholder {
+    color: rgba(255, 255, 255, 0.5);
+  }
+
+  .newsletter-form input:focus {
+    outline: none;
+    border-color: var(--teal);
+    background: rgba(255, 255, 255, 0.12);
+  }
+
+  @media (max-width: 768px) {
+    .newsletter-form {
+      width: 100%;
+      max-width: none;
+    }
+  }
+</style>

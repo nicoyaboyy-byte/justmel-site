@@ -1,27 +1,27 @@
 ---
 const services = [
   {
-    title: 'Siding',
-    blurb: 'Durable, weather-resistant siding in vinyl, fiber cement, and more — installed to protect your home and boost curb appeal for years to come.',
-    bullets: ['Vinyl & fiber cement', 'Full tear-off & re-side', 'Insulated options'],
-    icon: 'siding',
-  },
-  {
     title: 'Roofing',
-    blurb: 'Professional roof installation and replacement using premium asphalt shingles and proven systems built to handle New Jersey weather.',
-    bullets: ['Full roof replacement', 'Asphalt shingle specialists', 'Flashing & underlayment'],
+    tag: 'Shingles · Flat · Repair',
+    blurb: 'Full roof replacements, tear-offs, and repairs using premium asphalt shingles built for New Jersey weather.',
     icon: 'roofing',
   },
   {
+    title: 'Siding',
+    tag: 'Vinyl · Fiber Cement',
+    blurb: 'Durable, weather-resistant siding that boosts curb appeal and protects your home for decades.',
+    icon: 'siding',
+  },
+  {
     title: 'Windows',
-    blurb: 'Energy-efficient replacement windows that lower utility bills, reduce outside noise, and give your home a clean, modern finish.',
-    bullets: ['Double & triple pane', 'Custom sizing', 'Low-E energy efficient'],
+    tag: 'Energy Efficient · Custom',
+    blurb: 'Replacement windows that reduce energy bills, dampen noise, and finish your home with a clean, modern look.',
     icon: 'windows',
   },
   {
     title: 'Gutters',
-    blurb: 'Seamless gutter installation and repair that keep water away from your foundation — precision-measured and professionally hung.',
-    bullets: ['Seamless aluminum', 'Leaf guards available', 'Downspout systems'],
+    tag: 'Seamless · Leaf Guards',
+    blurb: 'Seamless aluminum gutters and downspouts that protect your foundation, professionally measured and hung.',
     icon: 'gutters',
   },
 ];
@@ -29,45 +29,41 @@ const services = [
 
 <section class="services section" id="services">
   <div class="container">
-    <div class="section-header">
-      <span class="eyebrow">What We Do</span>
-      <h2>Exterior Services Done Right, the First Time</h2>
+    <div class="section-header reveal">
+      <span class="eyebrow">Our Expertise</span>
+      <h2>Premium Exterior Services for Your Home</h2>
       <p>
-        We focus on what we do best — the four exterior services that protect
-        your home and define its curb appeal. Every job is handled by our in-house
-        crew, never subcontracted out.
+        Four specialties, one in-house crew — never subcontracted.
+        Every JustMel project is delivered with quality materials, clean workmanship,
+        and a written warranty.
       </p>
     </div>
 
     <div class="services-grid">
-      {services.map((s) => (
-        <article class="service-card">
-          <div class="service-icon" data-icon={s.icon}>
-            {s.icon === 'siding' && (
-              <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M8 20h48M8 28h48M8 36h48M8 44h48"/><path d="M12 16v32M52 16v32M32 16v32"/></svg>
-            )}
-            {s.icon === 'roofing' && (
-              <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 34 32 12l26 22"/><path d="M12 32v18h40V32"/><path d="M24 50V38h16v12"/></svg>
-            )}
-            {s.icon === 'windows' && (
-              <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="12" y="10" width="40" height="44" rx="2"/><path d="M32 10v44M12 32h40"/></svg>
-            )}
-            {s.icon === 'gutters' && (
-              <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20h56v8c0 2-2 4-4 4H8c-2 0-4-2-4-4z"/><path d="M14 32v20M50 32v20"/><path d="M12 52h6M48 52h6"/></svg>
-            )}
+      {services.map((s, i) => (
+        <article class={`service-card reveal reveal-delay-${i + 1}`}>
+          <div class="service-media">
+            <div class="service-icon">
+              {s.icon === 'roofing' && (
+                <svg viewBox="0 0 80 80" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M8 42 L40 14 L72 42"/><path d="M14 38v26h52V38"/><path d="M30 64V48h20v16"/><path d="M54 22v8"/></svg>
+              )}
+              {s.icon === 'siding' && (
+                <svg viewBox="0 0 80 80" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h56M12 32h56M12 44h56M12 56h56"/><path d="M20 14v54M40 14v54M60 14v54"/></svg>
+              )}
+              {s.icon === 'windows' && (
+                <svg viewBox="0 0 80 80" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="14" y="10" width="52" height="60" rx="2"/><path d="M40 10v60M14 40h52"/></svg>
+              )}
+              {s.icon === 'gutters' && (
+                <svg viewBox="0 0 80 80" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 22h72v10c0 3-2 5-5 5H9c-3 0-5-2-5-5z"/><path d="M18 37v30M62 37v30"/><path d="M15 67h6M59 67h6"/></svg>
+              )}
+            </div>
+            <span class="service-num">0{i + 1}</span>
           </div>
+          <span class="service-tag">{s.tag}</span>
           <h3>{s.title}</h3>
           <p>{s.blurb}</p>
-          <ul class="service-bullets">
-            {s.bullets.map((b) => (
-              <li>
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-                {b}
-              </li>
-            ))}
-          </ul>
           <a href="#contact" class="service-link">
-            Request a Quote
+            Get a Quote
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
           </a>
         </article>
@@ -78,21 +74,30 @@ const services = [
 
 <style>
   .services {
-    background: var(--off-white);
+    background: var(--white);
+    position: relative;
   }
 
   .services-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-template-columns: repeat(4, 1fr);
     gap: 1.5rem;
+  }
+
+  @media (max-width: 1000px) {
+    .services-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+
+  @media (max-width: 520px) {
+    .services-grid { grid-template-columns: 1fr; }
   }
 
   .service-card {
     background: var(--white);
     border: 1px solid var(--gray-100);
     border-radius: var(--radius-lg);
-    padding: 2.25rem 1.75rem;
-    transition: all 0.3s ease;
+    padding: 2.5rem 1.75rem 2rem;
+    transition: all 0.35s var(--ease-out);
     display: flex;
     flex-direction: column;
     position: relative;
@@ -105,15 +110,15 @@ const services = [
     top: 0;
     left: 0;
     right: 0;
-    height: 3px;
-    background: linear-gradient(90deg, var(--navy), var(--teal));
+    height: 4px;
+    background: linear-gradient(90deg, var(--teal), var(--navy));
     transform: scaleX(0);
     transform-origin: left;
-    transition: transform 0.3s ease;
+    transition: transform 0.4s var(--ease-out);
   }
 
   .service-card:hover {
-    transform: translateY(-4px);
+    transform: translateY(-6px);
     border-color: transparent;
     box-shadow: var(--shadow-lg);
   }
@@ -122,11 +127,20 @@ const services = [
     transform: scaleX(1);
   }
 
+  .service-media {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1.5rem;
+  }
+
   .service-icon {
     width: 56px;
     height: 56px;
-    color: var(--teal);
-    margin-bottom: 1.25rem;
+    color: var(--teal-dark);
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 
   .service-icon svg {
@@ -134,44 +148,46 @@ const services = [
     height: 100%;
   }
 
+  .service-num {
+    font-family: var(--font-display);
+    font-size: 3rem;
+    font-weight: 800;
+    line-height: 1;
+    color: var(--gray-100);
+    letter-spacing: -0.04em;
+  }
+
+  .service-tag {
+    display: inline-block;
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--teal-dark);
+    margin-bottom: 0.6rem;
+  }
+
   .service-card h3 {
-    font-size: 1.5rem;
+    font-size: 1.6rem;
     margin-bottom: 0.75rem;
   }
 
   .service-card > p {
-    margin-bottom: 1.25rem;
-    font-size: 0.95rem;
-  }
-
-  .service-bullets {
-    list-style: none;
     margin-bottom: 1.5rem;
-  }
-
-  .service-bullets li {
-    display: flex;
-    align-items: center;
-    gap: 0.6rem;
-    padding: 0.35rem 0;
-    font-size: 0.9rem;
-    color: var(--gray-600);
-  }
-
-  .service-bullets svg {
-    color: var(--teal);
-    flex-shrink: 0;
+    font-size: 0.95rem;
+    flex-grow: 1;
   }
 
   .service-link {
     display: inline-flex;
     align-items: center;
     gap: 0.5rem;
-    margin-top: auto;
     color: var(--navy);
-    font-weight: 600;
-    font-size: 0.9rem;
-    letter-spacing: 0.02em;
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 0.78rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
   }
 
   .service-link:hover {

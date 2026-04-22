@@ -1,72 +1,86 @@
 ---
+const base = import.meta.env.BASE_URL;
 ---
 
 <section class="about section" id="about">
   <div class="container about-grid">
-    <div class="about-image">
-      <div class="image-placeholder">
-        <svg viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <rect width="200" height="200" fill="#1a2b5c"/>
-          <path d="M40 120 L100 70 L160 120 L160 170 L40 170 Z" fill="#ffffff" opacity="0.95"/>
-          <path d="M55 120 L100 82 L145 120" fill="#4fb6c4"/>
-          <rect x="85" y="140" width="30" height="30" fill="#1a2b5c"/>
-          <rect x="60" y="135" width="15" height="15" fill="#1a2b5c"/>
-          <rect x="125" y="135" width="15" height="15" fill="#1a2b5c"/>
-        </svg>
-        <span class="image-caption">Replace with project photo</span>
-      </div>
+    <div class="about-media reveal-left">
+      <div class="media-frame">
+        <div class="media-gradient">
+          <svg viewBox="0 0 400 500" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <linearGradient id="g1" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0" stop-color="#1a2b5c"/>
+                <stop offset="1" stop-color="#0a1228"/>
+              </linearGradient>
+              <linearGradient id="g2" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0" stop-color="#4fb6c4"/>
+                <stop offset="1" stop-color="#2a8d9a"/>
+              </linearGradient>
+            </defs>
+            <rect width="400" height="500" fill="url(#g1)"/>
+            <g opacity="0.95">
+              <path d="M60 320 L140 240 L220 320 L220 460 L60 460 Z" fill="#f7f9fb"/>
+              <path d="M140 240 L220 320 L220 220 L180 190 L140 220 Z" fill="url(#g2)"/>
+              <rect x="100" y="360" width="35" height="40" fill="#1a2b5c"/>
+              <rect x="155" y="350" width="45" height="35" fill="#1a2b5c"/>
+              <rect x="75" y="380" width="20" height="25" fill="#1a2b5c"/>
+            </g>
+            <g opacity="0.92">
+              <path d="M200 280 L300 200 L380 280 L380 440 L200 440 Z" fill="#ffffff"/>
+              <path d="M300 200 L380 280 L380 180 L340 150 L300 180 Z" fill="url(#g2)"/>
+              <rect x="240" y="310" width="30" height="40" fill="#1a2b5c"/>
+              <rect x="290" y="300" width="45" height="45" fill="#1a2b5c"/>
+              <rect x="345" y="320" width="25" height="30" fill="#1a2b5c"/>
+            </g>
+            <text x="200" y="485" text-anchor="middle" font-family="Inter, sans-serif" font-size="13" font-weight="600" fill="rgba(255,255,255,0.6)">REPLACE WITH PROJECT PHOTO</text>
+          </svg>
+        </div>
 
-      <div class="floating-stat">
-        <span class="stat-number">15+</span>
-        <span class="stat-label">Years Building Trust<br/>Across New Jersey</span>
+        <div class="media-badge">
+          <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 11 12 14 16 10"/></svg>
+          <div>
+            <strong>Licensed &amp; Insured</strong>
+            <span>NJ HIC #13VH10743600</span>
+          </div>
+        </div>
       </div>
     </div>
 
-    <div class="about-content">
+    <div class="about-content reveal-right">
       <span class="eyebrow">About JustMel LLC</span>
-      <h2>A General Contractor Homeowners Actually Recommend.</h2>
+      <h2>Transforming Houses into Homes You'll Be Proud Of.</h2>
       <p class="lead">
-        JustMel LLC was founded with one goal: deliver honest, high-quality
-        exterior work that homeowners in Kearny and throughout northern New Jersey
-        can count on. We show up on time, do what we said we'd do, and stand
-        behind every job.
+        JustMel LLC is a family-run general contractor based in Kearny, New Jersey.
+        We specialize in the four exterior services that matter most — roofing,
+        siding, windows, and gutters — and we do them with the kind of care and
+        craftsmanship homeowners actually recommend to their neighbors.
       </p>
       <p>
-        Every project — from a single gutter repair to a full roof and siding
-        replacement — is handled by our own crew. No subcontracting. No surprises.
-        Just straightforward pricing, clean job sites, and workmanship that
-        passes inspection the first time.
+        Every project is handled start-to-finish by our own crew. We show up on
+        time, work clean, communicate clearly, and stand behind every install
+        with a written warranty. That's the standard.
       </p>
 
-      <ul class="about-features">
-        <li>
-          <div class="feature-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-          </div>
-          <div>
-            <h4>Fully Licensed &amp; Insured</h4>
-            <p>NJ Home Improvement Contractor License #13VH10743600. General liability insurance on every crew.</p>
-          </div>
-        </li>
-        <li>
-          <div class="feature-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-          </div>
-          <div>
-            <h4>Local to Kearny, NJ</h4>
-            <p>Proudly serving Hudson, Essex, and Bergen counties. We live where we work and it shows.</p>
-          </div>
-        </li>
-        <li>
-          <div class="feature-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
-          </div>
-          <div>
-            <h4>Free, No-Pressure Estimates</h4>
-            <p>We walk the property, listen to what you need, and give you a clear written quote — no sales pressure.</p>
-          </div>
-        </li>
-      </ul>
+      <div class="stats-row">
+        <div class="stat">
+          <span class="stat-num"><span data-count="15" data-suffix="+">0+</span></span>
+          <span class="stat-label">Years of Experience</span>
+        </div>
+        <div class="stat">
+          <span class="stat-num"><span data-count="500" data-suffix="+">0+</span></span>
+          <span class="stat-label">Happy Homeowners</span>
+        </div>
+        <div class="stat">
+          <span class="stat-num"><span data-count="100" data-suffix="%">0%</span></span>
+          <span class="stat-label">Licensed &amp; Insured</span>
+        </div>
+      </div>
+
+      <div class="about-cta">
+        <a href="#contact" class="btn btn-dark">Schedule an Estimate</a>
+        <a href="#gallery" class="btn btn-ghost">See Our Work</a>
+      </div>
     </div>
   </div>
 </section>
@@ -79,138 +93,135 @@
   .about-grid {
     display: grid;
     grid-template-columns: 1fr 1.1fr;
-    gap: 4rem;
+    gap: 4.5rem;
     align-items: center;
   }
 
-  .about-image {
+  .about-media {
     position: relative;
   }
 
-  .image-placeholder {
+  .media-frame {
     position: relative;
-    aspect-ratio: 4 / 5;
+    border-radius: var(--radius-lg);
+    overflow: visible;
+  }
+
+  .media-gradient {
     border-radius: var(--radius-lg);
     overflow: hidden;
-    background: var(--gray-100);
-    box-shadow: var(--shadow-lg);
+    box-shadow: var(--shadow-xl);
+    aspect-ratio: 4 / 5;
   }
 
-  .image-placeholder svg {
+  .media-gradient svg {
     width: 100%;
     height: 100%;
     display: block;
   }
 
-  .image-caption {
+  .media-badge {
     position: absolute;
-    bottom: 1rem;
-    left: 1rem;
-    background: rgba(255, 255, 255, 0.9);
-    color: var(--gray-600);
-    font-size: 0.75rem;
-    padding: 0.3rem 0.7rem;
-    border-radius: 4px;
-    font-weight: 500;
-  }
-
-  .floating-stat {
-    position: absolute;
-    bottom: -1.5rem;
-    right: -1.5rem;
-    background: var(--teal);
-    color: var(--white);
-    padding: 1.75rem 2rem;
+    bottom: -1.25rem;
+    right: -1.25rem;
+    background: var(--white);
     border-radius: var(--radius-lg);
+    padding: 1.25rem 1.5rem;
     box-shadow: var(--shadow-lg);
-    text-align: left;
-    max-width: 220px;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    color: var(--teal-dark);
+    max-width: 270px;
   }
 
-  .stat-number {
+  .media-badge strong {
     display: block;
     font-family: var(--font-display);
-    font-size: 2.75rem;
-    font-weight: 800;
-    line-height: 1;
-    margin-bottom: 0.5rem;
+    color: var(--navy-deep);
+    font-size: 0.95rem;
+    margin-bottom: 0.15rem;
   }
 
-  .stat-label {
-    display: block;
-    font-size: 0.85rem;
-    font-weight: 500;
-    line-height: 1.4;
-    opacity: 0.95;
+  .media-badge span {
+    font-size: 0.78rem;
+    color: var(--gray-400);
+    letter-spacing: 0.04em;
   }
 
   .about-content .lead {
-    font-size: 1.15rem;
-    color: var(--gray-800);
-    margin-top: 1.5rem;
+    font-size: 1.1rem;
+    color: var(--gray-700);
+    margin-top: 1rem;
     margin-bottom: 1rem;
-    line-height: 1.7;
+    line-height: 1.75;
   }
 
   .about-content > p {
-    margin-bottom: 2rem;
+    margin-bottom: 2.5rem;
+    font-size: 0.97rem;
   }
 
-  .about-features {
-    list-style: none;
+  .stats-row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    padding: 2rem 0;
+    border-top: 1px solid var(--gray-100);
+    border-bottom: 1px solid var(--gray-100);
+    margin-bottom: 2.5rem;
+  }
+
+  .stat {
     display: flex;
     flex-direction: column;
-    gap: 1.5rem;
   }
 
-  .about-features li {
-    display: flex;
-    gap: 1rem;
-    align-items: flex-start;
-  }
-
-  .feature-icon {
-    width: 44px;
-    height: 44px;
-    border-radius: 50%;
-    background: var(--off-white);
+  .stat-num {
+    font-family: var(--font-display);
+    font-size: 2.4rem;
+    font-weight: 800;
     color: var(--teal-dark);
+    line-height: 1;
+    margin-bottom: 0.4rem;
+    letter-spacing: -0.02em;
+  }
+
+  .stat-label {
+    font-size: 0.82rem;
+    font-weight: 500;
+    color: var(--gray-600);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  .about-cta {
     display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-shrink: 0;
-  }
-
-  .feature-icon svg {
-    width: 20px;
-    height: 20px;
-  }
-
-  .about-features h4 {
-    font-family: var(--font-sans);
-    font-size: 1.05rem;
-    font-weight: 600;
-    margin-bottom: 0.25rem;
-    color: var(--navy-deep);
-  }
-
-  .about-features p {
-    font-size: 0.95rem;
-    margin: 0;
+    gap: 0.85rem;
+    flex-wrap: wrap;
   }
 
   @media (max-width: 900px) {
     .about-grid {
       grid-template-columns: 1fr;
-      gap: 3rem;
+      gap: 3.5rem;
     }
-    .about-image {
-      max-width: 420px;
+    .about-media {
+      max-width: 440px;
       margin: 0 auto;
     }
-    .floating-stat {
+    .media-badge {
       right: 1rem;
-      bottom: -1rem;
+      bottom: -0.75rem;
     }
+    .stats-row {
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0.5rem;
+    }
+  }
+
+  @media (max-width: 500px) {
+    .stat-num { font-size: 1.75rem; }
+    .stat-label { font-size: 0.7rem; }
   }
 </style>
