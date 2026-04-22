@@ -1,0 +1,159 @@
+---
+const year = new Date().getFullYear();
+---
+
+<footer class="footer">
+  <div class="container footer-inner">
+    <div class="footer-brand">
+      <div class="brand-mark">JustMel LLC</div>
+      <p class="brand-tag">Licensed General Contractor<br/>Serving Northern New Jersey</p>
+      <div class="footer-license">
+        <span class="license-badge">Fully Insured</span>
+        <span class="license-badge">Lic# 13VH10743600</span>
+      </div>
+    </div>
+
+    <div class="footer-col">
+      <h4>Services</h4>
+      <ul>
+        <li><a href="#services">Siding Installation</a></li>
+        <li><a href="#services">Roofing</a></li>
+        <li><a href="#services">Windows</a></li>
+        <li><a href="#services">Gutters</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <h4>Company</h4>
+      <ul>
+        <li><a href="#about">About Us</a></li>
+        <li><a href="#why">Why Choose Us</a></li>
+        <li><a href="#gallery">Recent Work</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <h4>Get In Touch</h4>
+      <ul>
+        <li><a href="tel:+19736980608">973-698-0608</a></li>
+        <li><a href="https://wa.me/19736980608" target="_blank" rel="noopener">WhatsApp</a></li>
+        <li>Kearny, NJ</li>
+        <li>Mon–Sat · 7am–6pm</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <div class="container footer-bottom-inner">
+      <p>&copy; {year} JustMel LLC. All rights reserved.</p>
+      <p class="credit">Quality exterior work across northern New Jersey.</p>
+    </div>
+  </div>
+</footer>
+
+<style>
+  .footer {
+    background: var(--navy-deep);
+    color: rgba(255, 255, 255, 0.7);
+    padding: 4rem 0 0;
+  }
+
+  .footer-inner {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr 1fr 1fr;
+    gap: 3rem;
+    padding-bottom: 3rem;
+  }
+
+  .footer-brand .brand-mark {
+    font-family: var(--font-display);
+    font-size: 1.75rem;
+    font-weight: 800;
+    color: var(--white);
+    margin-bottom: 0.75rem;
+  }
+
+  .brand-tag {
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.65);
+    margin-bottom: 1.5rem;
+  }
+
+  .footer-license {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .license-badge {
+    background: rgba(79, 182, 196, 0.15);
+    color: var(--teal);
+    padding: 0.35rem 0.75rem;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    border: 1px solid rgba(79, 182, 196, 0.3);
+  }
+
+  .footer-col h4 {
+    font-family: var(--font-sans);
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--white);
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    margin-bottom: 1.25rem;
+  }
+
+  .footer-col ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+  }
+
+  .footer-col a,
+  .footer-col li {
+    color: rgba(255, 255, 255, 0.65);
+    font-size: 0.92rem;
+    transition: color 0.2s ease;
+  }
+
+  .footer-col a:hover {
+    color: var(--teal);
+  }
+
+  .footer-bottom {
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 1.5rem 0;
+  }
+
+  .footer-bottom-inner {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    font-size: 0.82rem;
+    color: rgba(255, 255, 255, 0.5);
+  }
+
+  .footer-bottom-inner p {
+    color: inherit;
+    margin: 0;
+  }
+
+  @media (max-width: 800px) {
+    .footer-inner {
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+    }
+  }
+
+  @media (max-width: 500px) {
+    .footer-inner {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

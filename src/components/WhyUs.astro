@@ -1,0 +1,141 @@
+---
+const reasons = [
+  {
+    title: 'Transparent Pricing',
+    desc: 'Every quote is written, itemized, and honest. No surprises, no last-minute change orders, no hidden fees.',
+    icon: 'price',
+  },
+  {
+    title: 'In-House Crew',
+    desc: 'The team that walks your property gives you the quote — and does the work. We never subcontract the job out.',
+    icon: 'crew',
+  },
+  {
+    title: 'Quality Materials',
+    desc: 'We install only proven, name-brand materials from trusted suppliers. Your home deserves products that last.',
+    icon: 'material',
+  },
+  {
+    title: 'Clean Job Sites',
+    desc: 'We treat your property like our own — protective tarps, daily clean-up, and magnetic nail sweeps when we leave.',
+    icon: 'clean',
+  },
+  {
+    title: 'Workmanship Warranty',
+    desc: 'Our installs are backed by a labor warranty in addition to the manufacturer warranty on materials.',
+    icon: 'warranty',
+  },
+  {
+    title: 'Fast Turnaround',
+    desc: 'Most residential projects are completed in 1–5 days. We respect your schedule and communicate every step.',
+    icon: 'time',
+  },
+];
+---
+
+<section class="why section" id="why">
+  <div class="container">
+    <div class="section-header">
+      <span class="eyebrow">Why Homeowners Choose Us</span>
+      <h2>Built on Craftsmanship. Backed by Accountability.</h2>
+      <p>
+        You're hiring someone to work on the biggest investment you own. Here's
+        why the homeowners of northern New Jersey keep recommending JustMel LLC
+        to their neighbors.
+      </p>
+    </div>
+
+    <div class="reasons-grid">
+      {reasons.map((r) => (
+        <div class="reason">
+          <div class="reason-icon">
+            {r.icon === 'price' && (<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>)}
+            {r.icon === 'crew' && (<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>)}
+            {r.icon === 'material' && (<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>)}
+            {r.icon === 'clean' && (<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>)}
+            {r.icon === 'warranty' && (<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 11 12 14 16 10"/></svg>)}
+            {r.icon === 'time' && (<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>)}
+          </div>
+          <h3>{r.title}</h3>
+          <p>{r.desc}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .why {
+    background: var(--navy-deep);
+    color: var(--white);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .why::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(circle at 10% 20%, rgba(79, 182, 196, 0.15) 0%, transparent 40%),
+      radial-gradient(circle at 90% 80%, rgba(79, 182, 196, 0.1) 0%, transparent 40%);
+    z-index: 0;
+  }
+
+  .why > .container {
+    position: relative;
+    z-index: 1;
+  }
+
+  .why h2 {
+    color: var(--white);
+  }
+
+  .why .section-header p {
+    color: rgba(255, 255, 255, 0.75);
+  }
+
+  .why .eyebrow {
+    color: var(--teal);
+  }
+
+  .reasons-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+  }
+
+  .reason {
+    padding: 0.5rem;
+  }
+
+  .reason-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: rgba(79, 182, 196, 0.15);
+    border: 1px solid rgba(79, 182, 196, 0.3);
+    color: var(--teal);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1.25rem;
+  }
+
+  .reason-icon svg {
+    width: 22px;
+    height: 22px;
+  }
+
+  .reason h3 {
+    color: var(--white);
+    font-size: 1.2rem;
+    margin-bottom: 0.6rem;
+  }
+
+  .reason p {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.95rem;
+    line-height: 1.6;
+  }
+</style>
