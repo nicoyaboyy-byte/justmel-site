@@ -1,0 +1,280 @@
+---
+import Layout from '../layouts/Layout.astro';
+import PageHero from '../components/PageHero.astro';
+import CTABand from '../components/CTABand.astro';
+
+const base = import.meta.env.BASE_URL;
+const b = base.endsWith('/') ? base : base + '/';
+const contactHref = `${b}contact/`;
+
+const projects = [
+  { cat: 'Roofing', title: 'Asphalt Shingle Replacement', loc: 'Kearny, NJ', grad: 'linear-gradient(135deg, #1a2b5c 0%, #0a1228 100%)' },
+  { cat: 'Siding', title: 'Full Vinyl Re-Side', loc: 'Harrison, NJ', grad: 'linear-gradient(135deg, #4fb6c4 0%, #2a8d9a 100%)' },
+  { cat: 'Windows', title: 'Energy-Efficient Install', loc: 'North Arlington, NJ', grad: 'linear-gradient(135deg, #2a8d9a 0%, #1a2b5c 100%)' },
+  { cat: 'Gutters', title: 'Seamless Gutter System', loc: 'Belleville, NJ', grad: 'linear-gradient(135deg, #0f1b3d 0%, #2a8d9a 100%)' },
+  { cat: 'Siding', title: 'Fiber Cement Upgrade', loc: 'Nutley, NJ', grad: 'linear-gradient(135deg, #4fb6c4 0%, #1a2b5c 100%)' },
+  { cat: 'Roofing', title: 'Complete Roof Tear-Off', loc: 'Lyndhurst, NJ', grad: 'linear-gradient(135deg, #1a2b5c 0%, #4fb6c4 100%)' },
+  { cat: 'Windows', title: 'Picture + Casement Combo', loc: 'Bloomfield, NJ', grad: 'linear-gradient(135deg, #0a1228 0%, #4fb6c4 100%)' },
+  { cat: 'Gutters', title: 'Leaf Guard Installation', loc: 'Kearny, NJ', grad: 'linear-gradient(135deg, #2a8d9a 0%, #0a1228 100%)' },
+  { cat: 'Roofing', title: 'Storm Damage Repair', loc: 'East Newark, NJ', grad: 'linear-gradient(135deg, #0f1b3d 0%, #1a2b5c 100%)' },
+  { cat: 'Siding', title: 'Insulated Vinyl System', loc: 'Rutherford, NJ', grad: 'linear-gradient(135deg, #2a8d9a 0%, #4fb6c4 100%)' },
+  { cat: 'Windows', title: 'Double-Hung Replacement', loc: 'Harrison, NJ', grad: 'linear-gradient(135deg, #1a2b5c 0%, #2a8d9a 100%)' },
+  { cat: 'Gutters', title: 'Fascia + Gutter Rebuild', loc: 'Kearny, NJ', grad: 'linear-gradient(135deg, #4fb6c4 0%, #0a1228 100%)' },
+];
+
+const categories = ['All', 'Roofing', 'Siding', 'Windows', 'Gutters'];
+---
+
+<Layout
+  title="Gallery | JustMel LLC — Recent Exterior Projects in Northern NJ"
+  description="Browse recent roofing, siding, window, and gutter projects by JustMel LLC across Kearny, Harrison, Bloomfield, and surrounding northern New Jersey towns."
+>
+  <PageHero
+    eyebrow="Our Portfolio"
+    title="Recent Work, Real Results."
+    subtitle="A window into the exterior transformations we've delivered across northern New Jersey. Every photo represents a home we'd be happy to use as a reference."
+    breadcrumb="Gallery"
+  />
+
+  <section class="gallery-page section">
+    <div class="container">
+      <div class="filter-tabs reveal" role="tablist">
+        {categories.map((cat) => (
+          <button type="button" class={`filter-tab${cat === 'All' ? ' active' : ''}`} data-filter={cat}>
+            {cat}
+          </button>
+        ))}
+      </div>
+
+      <div class="gallery-grid">
+        {projects.map((p, i) => (
+          <figure class={`gallery-item reveal reveal-delay-${(i % 4) + 1}`} data-cat={p.cat}>
+            <div class="gallery-image" style={`background: ${p.grad};`}>
+              <svg class="house-svg" viewBox="0 0 100 100" fill="none" stroke="rgba(255,255,255,0.3)" stroke-width="1.5">
+                <path d="M10 70 L50 35 L90 70 L90 90 L10 90 Z"/>
+                <path d="M50 35 L50 90"/>
+                <path d="M30 90 L30 70"/>
+                <path d="M70 90 L70 70"/>
+                <rect x="20" y="75" width="6" height="8" fill="rgba(255,255,255,0.15)"/>
+                <rect x="74" y="75" width="6" height="8" fill="rgba(255,255,255,0.15)"/>
+              </svg>
+              <div class="gallery-hover">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
+              </div>
+            </div>
+            <figcaption>
+              <span class="proj-cat">{p.cat}</span>
+              <h4>{p.title}</h4>
+              <span class="proj-loc">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                {p.loc}
+              </span>
+            </figcaption>
+          </figure>
+        ))}
+      </div>
+
+      <div class="gallery-cta reveal">
+        <p>Want to see more before/after photos or speak to a past customer? Just ask.</p>
+        <a href={contactHref} class="btn btn-primary">Request References</a>
+      </div>
+    </div>
+  </section>
+
+  <CTABand />
+</Layout>
+
+<style>
+  .gallery-page {
+    background: var(--off-white);
+  }
+
+  .filter-tabs {
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    margin-bottom: 3rem;
+  }
+
+  .filter-tab {
+    background: var(--white);
+    border: 1px solid var(--gray-100);
+    color: var(--gray-700);
+    padding: 0.7rem 1.5rem;
+    border-radius: 999px;
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 0.78rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+
+  .filter-tab:hover {
+    border-color: var(--teal);
+    color: var(--teal-dark);
+  }
+
+  .filter-tab.active {
+    background: var(--navy-deep);
+    border-color: var(--navy-deep);
+    color: var(--white);
+  }
+
+  .gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.25rem;
+    margin-bottom: 3.5rem;
+  }
+
+  .gallery-item {
+    background: var(--white);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+    transition: all 0.35s var(--ease-out);
+    cursor: pointer;
+  }
+
+  .gallery-item.hidden {
+    display: none;
+  }
+
+  .gallery-item:hover {
+    transform: translateY(-6px);
+    box-shadow: var(--shadow-lg);
+  }
+
+  .gallery-image {
+    aspect-ratio: 4 / 3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .house-svg {
+    width: 70%;
+    max-width: 180px;
+    transition: transform 0.6s var(--ease-out);
+  }
+
+  .gallery-item:hover .house-svg {
+    transform: scale(1.08);
+  }
+
+  .gallery-hover {
+    position: absolute;
+    inset: 0;
+    background: rgba(10, 18, 40, 0.55);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    color: var(--white);
+  }
+
+  .gallery-hover::after {
+    content: '';
+    position: absolute;
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    background: rgba(79, 182, 196, 0.2);
+    transform: scale(0.7);
+    transition: transform 0.3s ease;
+  }
+
+  .gallery-hover svg {
+    position: relative;
+    z-index: 2;
+  }
+
+  .gallery-item:hover .gallery-hover {
+    opacity: 1;
+  }
+
+  .gallery-item:hover .gallery-hover::after {
+    transform: scale(1);
+  }
+
+  .gallery-item figcaption {
+    padding: 1.25rem 1.35rem 1.5rem;
+  }
+
+  .proj-cat {
+    display: inline-block;
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--teal-dark);
+    margin-bottom: 0.5rem;
+  }
+
+  .gallery-item h4 {
+    font-family: var(--font-display);
+    font-size: 1.05rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    color: var(--navy-deep);
+    line-height: 1.3;
+  }
+
+  .proj-loc {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+    font-size: 0.78rem;
+    color: var(--gray-400);
+  }
+
+  .gallery-cta {
+    text-align: center;
+    padding: 2.5rem 1.5rem;
+    background: var(--white);
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--gray-100);
+  }
+
+  .gallery-cta p {
+    margin-bottom: 1.25rem;
+    font-size: 1rem;
+    color: var(--gray-700);
+  }
+
+  @media (max-width: 1000px) {
+    .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+
+  @media (max-width: 520px) {
+    .gallery-grid { grid-template-columns: 1fr; }
+  }
+</style>
+
+<script>
+  const tabs = document.querySelectorAll<HTMLButtonElement>('.filter-tab');
+  const items = document.querySelectorAll<HTMLElement>('.gallery-item');
+
+  tabs.forEach((tab) => {
+    tab.addEventListener('click', () => {
+      const filter = tab.dataset.filter || 'All';
+      tabs.forEach((t) => t.classList.remove('active'));
+      tab.classList.add('active');
+
+      items.forEach((item) => {
+        if (filter === 'All' || item.dataset.cat === filter) {
+          item.classList.remove('hidden');
+        } else {
+          item.classList.add('hidden');
+        }
+      });
+    });
+  });
+</script>

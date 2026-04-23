@@ -1,0 +1,147 @@
+---
+import Layout from '../layouts/Layout.astro';
+import PageHero from '../components/PageHero.astro';
+import Contact from '../components/Contact.astro';
+
+const towns = [
+  'Kearny', 'Harrison', 'East Newark', 'North Arlington', 'Lyndhurst',
+  'Rutherford', 'Belleville', 'Nutley', 'Bloomfield', 'Newark',
+  'Jersey City', 'Secaucus',
+];
+---
+
+<Layout
+  title="Contact JustMel LLC | Free Estimates in Northern NJ"
+  description="Request a free estimate for roofing, siding, windows, or gutters. JustMel LLC responds same-day Mon–Sat. Call 973-698-0608 or message us on WhatsApp."
+>
+  <PageHero
+    eyebrow="Contact JustMel"
+    title="Let's Get Your Project Started."
+    subtitle="Call, text, WhatsApp, or fill out the form. We respond same-day Monday through Saturday — usually within a couple of hours."
+    breadcrumb="Contact"
+  />
+
+  <Contact />
+
+  <section class="service-area section">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="eyebrow">Service Area</span>
+        <h2>We Work Throughout Northern New Jersey.</h2>
+        <p>Home base is Kearny, NJ — here's where we regularly work. Not on the list? Give us a call anyway, we probably cover it.</p>
+      </div>
+
+      <div class="area-grid reveal">
+        {towns.map((t) => (
+          <span class="town-pill">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            {t}, NJ
+          </span>
+        ))}
+      </div>
+
+      <div class="hours reveal">
+        <div class="hours-card">
+          <div class="hours-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          </div>
+          <div>
+            <strong>Business Hours</strong>
+            <p>Monday – Saturday · 7:00 AM – 6:00 PM<br/>Sunday · Closed (emergency calls only)</p>
+          </div>
+        </div>
+        <div class="hours-card">
+          <div class="hours-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 11 12 14 16 10"/></svg>
+          </div>
+          <div>
+            <strong>Fully Licensed &amp; Insured</strong>
+            <p>NJ Home Improvement Contractor #13VH10743600<br/>General liability + workers comp on every job.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .service-area {
+    background: var(--white);
+  }
+
+  .area-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.65rem;
+    justify-content: center;
+    max-width: 760px;
+    margin: 0 auto 3rem;
+  }
+
+  .town-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    background: var(--off-white);
+    border: 1px solid var(--gray-100);
+    color: var(--gray-700);
+    padding: 0.55rem 1rem;
+    border-radius: 999px;
+    font-size: 0.88rem;
+    font-weight: 500;
+  }
+
+  .town-pill svg {
+    color: var(--teal-dark);
+  }
+
+  .hours {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.25rem;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  .hours-card {
+    background: var(--off-white);
+    border-radius: var(--radius-lg);
+    padding: 1.75rem;
+    display: flex;
+    gap: 1rem;
+    border: 1px solid var(--gray-100);
+  }
+
+  .hours-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: rgba(79, 182, 196, 0.14);
+    color: var(--teal-dark);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .hours-card strong {
+    display: block;
+    font-family: var(--font-display);
+    font-size: 1.05rem;
+    color: var(--navy-deep);
+    margin-bottom: 0.35rem;
+  }
+
+  .hours-card p {
+    color: var(--gray-700);
+    font-size: 0.93rem;
+    line-height: 1.55;
+    margin: 0;
+  }
+
+  @media (max-width: 680px) {
+    .hours {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

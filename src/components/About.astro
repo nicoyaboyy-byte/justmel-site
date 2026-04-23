@@ -1,5 +1,8 @@
 ---
 const base = import.meta.env.BASE_URL;
+const b = base.endsWith('/') ? base : base + '/';
+const contactHref = `${b}contact/`;
+const galleryHref = `${b}gallery/`;
 ---
 
 <section class="about section" id="about">
@@ -78,8 +81,8 @@ const base = import.meta.env.BASE_URL;
       </div>
 
       <div class="about-cta">
-        <a href="#contact" class="btn btn-dark">Schedule an Estimate</a>
-        <a href="#gallery" class="btn btn-ghost">See Our Work</a>
+        <a href={contactHref} class="btn btn-dark">Schedule an Estimate</a>
+        <a href={galleryHref} class="btn btn-ghost">See Our Work</a>
       </div>
     </div>
   </div>

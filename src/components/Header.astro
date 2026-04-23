@@ -1,6 +1,36 @@
 ---
 const phone = '973-698-0608';
 const phoneLink = 'tel:+19736980608';
+
+interface Props {
+  currentPath?: string;
+}
+const { currentPath = '/' } = Astro.props;
+
+const base = import.meta.env.BASE_URL;
+// normalize: ensure base ends with '/'
+const b = base.endsWith('/') ? base : base + '/';
+
+const nav = [
+  { label: 'Home', href: b },
+  { label: 'Services', href: `${b}services/` },
+  { label: 'Gallery', href: `${b}gallery/` },
+  { label: 'About', href: `${b}about/` },
+  { label: 'FAQ', href: `${b}faq/` },
+  { label: 'Contact', href: `${b}contact/` },
+];
+
+// Normalize current path (strip trailing slash for comparison, except root)
+function isActive(href: string) {
+  const cur = currentPath.replace(/\/$/, '') || '/';
+  const target = href.replace(/\/$/, '') || '/';
+  const baseNorm = b.replace(/\/$/, '') || '/';
+  if (target === baseNorm) return cur === baseNorm;
+  return cur === target || cur.startsWith(target + '/');
+}
+
+const contactHref = `${b}contact/`;
+const estimateHref = `${b}contact/`;
 ---
 
 <header class="header">
@@ -17,14 +47,14 @@ const phoneLink = 'tel:+19736980608';
         <span class="top-item">Lic# 13VH10743600</span>
       </div>
       <div class="top-bar-right">
-        <a href="#contact" class="lets-talk">Let's Talk &rarr;</a>
+        <a href={contactHref} class="lets-talk">Let's Talk &rarr;</a>
       </div>
     </div>
   </div>
 
   <nav class="nav">
     <div class="container nav-inner">
-      <a href="#top" class="brand">
+      <a href={b} class="brand">
         <div class="brand-icon">
           <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M8 36 L32 14 L56 36 L56 58 L8 58 Z" fill="#1a2b5c"/>
@@ -40,16 +70,13 @@ const phoneLink = 'tel:+19736980608';
       </a>
 
       <ul class="nav-links">
-        <li><a href="#top">Home</a></li>
-        <li><a href="#services">Services</a></li>
-        <li><a href="#gallery">Gallery</a></li>
-        <li><a href="#about">About</a></li>
-        <li><a href="#faq">FAQ</a></li>
-        <li><a href="#contact">Contact</a></li>
+        {nav.map((item) => (
+          <li><a href={item.href} class={isActive(item.href) ? 'active' : ''}>{item.label}</a></li>
+        ))}
       </ul>
 
       <div class="nav-cta">
-        <a href="#contact" class="btn btn-primary btn-sm">Free Estimate</a>
+        <a href={estimateHref} class="btn btn-primary btn-sm">Free Estimate</a>
       </div>
 
       <button class="menu-toggle" aria-label="Toggle menu" id="menuToggle">
@@ -60,13 +87,10 @@ const phoneLink = 'tel:+19736980608';
     </div>
 
     <div class="mobile-nav" id="mobileNav">
-      <a href="#top">Home</a>
-      <a href="#services">Services</a>
-      <a href="#gallery">Gallery</a>
-      <a href="#about">About</a>
-      <a href="#faq">FAQ</a>
-      <a href="#contact">Contact</a>
-      <a href="#contact" class="btn btn-primary">Free Estimate</a>
+      {nav.map((item) => (
+        <a href={item.href} class={isActive(item.href) ? 'active' : ''}>{item.label}</a>
+      ))}
+      <a href={estimateHref} class="btn btn-primary">Free Estimate</a>
     </div>
   </nav>
 </header>
@@ -218,8 +242,13 @@ const phoneLink = 'tel:+19736980608';
     color: #2a8d9a;
   }
 
-  .nav-links a:hover::after {
+  .nav-links a:hover::after,
+  .nav-links a.active::after {
     transform: scaleX(1);
+  }
+
+  .nav-links a.active {
+    color: #2a8d9a;
   }
 
   .btn-sm {
@@ -266,6 +295,10 @@ const phoneLink = 'tel:+19736980608';
     border-bottom: 1px solid #e8ecf1;
     text-transform: uppercase;
     letter-spacing: 0.08em;
+  }
+
+  .mobile-nav a.active {
+    color: #2a8d9a;
   }
 
   .mobile-nav a.btn {

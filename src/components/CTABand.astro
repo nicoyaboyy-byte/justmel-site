@@ -1,5 +1,8 @@
 ---
 const phoneLink = 'tel:+19736980608';
+const base = import.meta.env.BASE_URL;
+const b = base.endsWith('/') ? base : base + '/';
+const contactHref = `${b}contact/`;
 ---
 
 <section class="cta-band">
@@ -10,7 +13,7 @@ const phoneLink = 'tel:+19736980608';
       <h2>Protect Your Biggest Investment<br/>with Work Built to Last.</h2>
     </div>
     <div class="cta-actions">
-      <a href="#contact" class="btn btn-primary">Contact Us Now</a>
+      <a href={contactHref} class="btn btn-primary">Contact Us Now</a>
       <a href={phoneLink} class="btn btn-outline">973-698-0608</a>
     </div>
   </div>

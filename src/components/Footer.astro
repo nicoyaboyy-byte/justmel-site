@@ -1,5 +1,7 @@
 ---
 const year = new Date().getFullYear();
+const base = import.meta.env.BASE_URL;
+const b = base.endsWith('/') ? base : base + '/';
 ---
 
 <footer class="footer">
@@ -29,20 +31,20 @@ const year = new Date().getFullYear();
     <div class="footer-col">
       <h4>Services</h4>
       <ul>
-        <li><a href="#services">Roofing</a></li>
-        <li><a href="#services">Siding</a></li>
-        <li><a href="#services">Windows</a></li>
-        <li><a href="#services">Gutters</a></li>
+        <li><a href={`${b}services/`}>Roofing</a></li>
+        <li><a href={`${b}services/`}>Siding</a></li>
+        <li><a href={`${b}services/`}>Windows</a></li>
+        <li><a href={`${b}services/`}>Gutters</a></li>
       </ul>
     </div>
 
     <div class="footer-col">
       <h4>Company</h4>
       <ul>
-        <li><a href="#about">About Us</a></li>
-        <li><a href="#gallery">Gallery</a></li>
-        <li><a href="#faq">FAQ</a></li>
-        <li><a href="#contact">Contact</a></li>
+        <li><a href={`${b}about/`}>About Us</a></li>
+        <li><a href={`${b}gallery/`}>Gallery</a></li>
+        <li><a href={`${b}faq/`}>FAQ</a></li>
+        <li><a href={`${b}contact/`}>Contact</a></li>
       </ul>
     </div>
 

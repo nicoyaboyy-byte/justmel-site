@@ -1,0 +1,123 @@
+---
+interface Props {
+  eyebrow?: string;
+  title: string;
+  subtitle?: string;
+  breadcrumb?: string;
+}
+
+const {
+  eyebrow = 'JustMel LLC',
+  title,
+  subtitle,
+  breadcrumb,
+} = Astro.props;
+
+const base = import.meta.env.BASE_URL;
+const b = base.endsWith('/') ? base : base + '/';
+---
+
+<section class="page-hero">
+  <div class="page-hero-bg"></div>
+  <div class="container page-hero-inner">
+    <span class="eyebrow page-hero-eyebrow">{eyebrow}</span>
+    <h1>{title}</h1>
+    {subtitle && <p class="page-hero-sub">{subtitle}</p>}
+    {breadcrumb && (
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <a href={b}>Home</a>
+        <span class="sep">/</span>
+        <span class="current">{breadcrumb}</span>
+      </nav>
+    )}
+  </div>
+</section>
+
+<style>
+  .page-hero {
+    position: relative;
+    color: #ffffff;
+    padding: 5rem 0 4.5rem;
+    overflow: hidden;
+    text-align: center;
+  }
+
+  .page-hero-bg {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    background:
+      radial-gradient(circle at 20% 30%, rgba(79, 182, 196, 0.2) 0%, transparent 50%),
+      radial-gradient(circle at 80% 70%, rgba(26, 43, 92, 0.35) 0%, transparent 55%),
+      linear-gradient(135deg, #0a1228 0%, #1a2b5c 55%, #2a8d9a 100%);
+  }
+
+  .page-hero-bg::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 40 L40 0 L80 40 L80 80 L0 80 Z' fill='none' stroke='%23ffffff' stroke-width='1' opacity='0.06'/%3E%3C/svg%3E");
+    opacity: 0.5;
+  }
+
+  .page-hero-inner {
+    position: relative;
+    z-index: 2;
+    max-width: 800px;
+  }
+
+  .page-hero-eyebrow {
+    color: #4fb6c4;
+    display: inline-block;
+    margin-bottom: 1rem;
+  }
+
+  .page-hero h1 {
+    color: #ffffff;
+    font-size: clamp(2.25rem, 5vw, 3.5rem);
+    line-height: 1.1;
+    margin-bottom: 1rem;
+  }
+
+  .page-hero-sub {
+    color: rgba(255, 255, 255, 0.85);
+    font-size: 1.1rem;
+    max-width: 620px;
+    margin: 0 auto 1.5rem;
+    line-height: 1.6;
+  }
+
+  .breadcrumb {
+    display: inline-flex;
+    gap: 0.5rem;
+    align-items: center;
+    font-size: 0.8rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.6);
+  }
+
+  .breadcrumb a {
+    color: rgba(255, 255, 255, 0.8);
+    font-weight: 600;
+  }
+
+  .breadcrumb a:hover {
+    color: #4fb6c4;
+  }
+
+  .breadcrumb .sep {
+    opacity: 0.4;
+  }
+
+  .breadcrumb .current {
+    color: #4fb6c4;
+    font-weight: 600;
+  }
+
+  @media (max-width: 640px) {
+    .page-hero {
+      padding: 3.5rem 0 3rem;
+    }
+  }
+</style>

@@ -25,6 +25,10 @@ const faqs = [
     a: 'Every installation is backed by a labor warranty on top of the manufacturer warranty on materials (which varies by product — typically 25–50 years on shingles, 20+ on siding). Details are included in every contract.',
   },
 ];
+
+const base = import.meta.env.BASE_URL;
+const b = base.endsWith('/') ? base : base + '/';
+const contactHref = `${b}contact/`;
 ---
 
 <section class="faq section" id="faq">
@@ -37,7 +41,7 @@ const faqs = [
         how we work. If your question isn't here, call us and ask — we'll tell it
         to you straight.
       </p>
-      <a href="#contact" class="btn btn-dark">Ask a Question</a>
+      <a href={contactHref} class="btn btn-dark">Ask a Question</a>
     </div>
 
     <div class="faq-list reveal-right">
