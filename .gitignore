@@ -26,3 +26,8 @@ pnpm-debug.log*
 # local dev tooling
 .claude/
 dev.cmd
+
+# raw photo archive (source material, not for repo)
+public/images/projects/
+public/images/projects - Copy/
+public/images/projects - Copy.zip

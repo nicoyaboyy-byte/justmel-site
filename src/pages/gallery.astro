@@ -7,19 +7,21 @@ const base = import.meta.env.BASE_URL;
 const b = base.endsWith('/') ? base : base + '/';
 const contactHref = `${b}contact/`;
 
+const g = (name: string) => `${b}images/gallery/${name}`;
+
 const projects = [
-  { cat: 'Roofing', title: 'Asphalt Shingle Replacement', loc: 'Kearny, NJ', grad: 'linear-gradient(135deg, #1a2b5c 0%, #0a1228 100%)' },
-  { cat: 'Siding', title: 'Full Vinyl Re-Side', loc: 'Harrison, NJ', grad: 'linear-gradient(135deg, #4fb6c4 0%, #2a8d9a 100%)' },
-  { cat: 'Windows', title: 'Energy-Efficient Install', loc: 'North Arlington, NJ', grad: 'linear-gradient(135deg, #2a8d9a 0%, #1a2b5c 100%)' },
-  { cat: 'Gutters', title: 'Seamless Gutter System', loc: 'Belleville, NJ', grad: 'linear-gradient(135deg, #0f1b3d 0%, #2a8d9a 100%)' },
-  { cat: 'Siding', title: 'Fiber Cement Upgrade', loc: 'Nutley, NJ', grad: 'linear-gradient(135deg, #4fb6c4 0%, #1a2b5c 100%)' },
-  { cat: 'Roofing', title: 'Complete Roof Tear-Off', loc: 'Lyndhurst, NJ', grad: 'linear-gradient(135deg, #1a2b5c 0%, #4fb6c4 100%)' },
-  { cat: 'Windows', title: 'Picture + Casement Combo', loc: 'Bloomfield, NJ', grad: 'linear-gradient(135deg, #0a1228 0%, #4fb6c4 100%)' },
-  { cat: 'Gutters', title: 'Leaf Guard Installation', loc: 'Kearny, NJ', grad: 'linear-gradient(135deg, #2a8d9a 0%, #0a1228 100%)' },
-  { cat: 'Roofing', title: 'Storm Damage Repair', loc: 'East Newark, NJ', grad: 'linear-gradient(135deg, #0f1b3d 0%, #1a2b5c 100%)' },
-  { cat: 'Siding', title: 'Insulated Vinyl System', loc: 'Rutherford, NJ', grad: 'linear-gradient(135deg, #2a8d9a 0%, #4fb6c4 100%)' },
-  { cat: 'Windows', title: 'Double-Hung Replacement', loc: 'Harrison, NJ', grad: 'linear-gradient(135deg, #1a2b5c 0%, #2a8d9a 100%)' },
-  { cat: 'Gutters', title: 'Fascia + Gutter Rebuild', loc: 'Kearny, NJ', grad: 'linear-gradient(135deg, #4fb6c4 0%, #0a1228 100%)' },
+  { cat: 'Siding', title: 'Blue Vinyl Cape Re-Side', loc: 'Northern NJ', img: g('siding-01-blue-cape.jpg') },
+  { cat: 'Siding', title: 'White Colonial Full Re-Side', loc: 'Northern NJ', img: g('siding-02-white-colonial.jpg') },
+  { cat: 'Siding', title: 'Board &amp; Batten Farmhouse', loc: 'Northern NJ', img: g('siding-03-board-batten.jpg') },
+  { cat: 'Roofing', title: 'Architectural Shingle + Cedar Shake', loc: 'Northern NJ', img: g('roofing-01-shingle-cedar.jpg') },
+  { cat: 'Roofing', title: 'Full Roof Tear-Off &amp; Replace', loc: 'Northern NJ', img: g('roofing-02-aerial-shingles.jpg') },
+  { cat: 'Roofing', title: 'Dark Architectural Roof', loc: 'Northern NJ', img: g('roofing-03-dark-roof.jpg') },
+  { cat: 'Windows', title: 'Andersen Bay Window', loc: 'Northern NJ', img: g('windows-01-andersen-bay.jpg') },
+  { cat: 'Windows', title: 'Andersen Casement Array', loc: 'Northern NJ', img: g('windows-02-andersen-array.jpg') },
+  { cat: 'Windows', title: 'Arched Window &amp; French Doors', loc: 'Northern NJ', img: g('windows-03-arched-french.jpg') },
+  { cat: 'Gutters', title: 'Seamless Aluminum Gutters', loc: 'Northern NJ', img: g('gutters-01-sage-house.jpg') },
+  { cat: 'Gutters', title: 'Gutter &amp; Downspout System', loc: 'Northern NJ', img: g('gutters-02-sage-corner.jpg') },
+  { cat: 'Gutters', title: 'Gutter Install &amp; Rebuild', loc: 'Northern NJ', img: g('gutters-03-install.jpg') },
 ];
 
 const categories = ['All', 'Roofing', 'Siding', 'Windows', 'Gutters'];
@@ -49,15 +51,7 @@ const categories = ['All', 'Roofing', 'Siding', 'Windows', 'Gutters'];
       <div class="gallery-grid">
         {projects.map((p, i) => (
           <figure class={`gallery-item reveal reveal-delay-${(i % 4) + 1}`} data-cat={p.cat}>
-            <div class="gallery-image" style={`background: ${p.grad};`}>
-              <svg class="house-svg" viewBox="0 0 100 100" fill="none" stroke="rgba(255,255,255,0.3)" stroke-width="1.5">
-                <path d="M10 70 L50 35 L90 70 L90 90 L10 90 Z"/>
-                <path d="M50 35 L50 90"/>
-                <path d="M30 90 L30 70"/>
-                <path d="M70 90 L70 70"/>
-                <rect x="20" y="75" width="6" height="8" fill="rgba(255,255,255,0.15)"/>
-                <rect x="74" y="75" width="6" height="8" fill="rgba(255,255,255,0.15)"/>
-              </svg>
+            <div class="gallery-image" style={`background-image: url('${p.img}');`}>
               <div class="gallery-hover">
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
               </div>
@@ -150,21 +144,16 @@ const categories = ['All', 'Roofing', 'Siding', 'Windows', 'Gutters'];
 
   .gallery-image {
     aspect-ratio: 4 / 3;
-    display: flex;
-    align-items: center;
-    justify-content: center;
     position: relative;
     overflow: hidden;
-  }
-
-  .house-svg {
-    width: 70%;
-    max-width: 180px;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
     transition: transform 0.6s var(--ease-out);
   }
 
-  .gallery-item:hover .house-svg {
-    transform: scale(1.08);
+  .gallery-item:hover .gallery-image {
+    transform: scale(1.04);
   }
 
   .gallery-hover {
